@@ -1,0 +1,2680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Mustard Global Investments - AI-powered algorithmic trading platform. Professional automated trading solutions for cryptocurrency & forex markets.">
+    <meta name="robots" content="index, follow">
+    <title>Mustard Global Investments | AI-Powered Algorithmic Trading</title>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --surface: #1a1a1a;
+            --surface2: #222;
+            --green: #22c55e;
+            --green-hover: #16a34a;
+            --red: #ef4444;
+            --red-hover: #dc2626;
+            --white: #ffffff;
+            --gray: #9ca3af;
+            --gold: #f59e0b;
+            --text: #e5e5e5;
+            --border: #333;
+            --radius: 10px;
+            --transition: 0.3s ease;
+            --blue-accent: #3b82f6;
+            --teal: #14b8a6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            min-width: 300px;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .page {
+            display: none;
+            min-height: 100vh;
+            width: 100%;
+        }
+        .page.active {
+            display: block;
+        }
+
+        /* ========== HEADER ========== */
+        .main-header {
+            background: linear-gradient(135deg, #0f0f0f 0%, #141410 50%, #0f0f0f 100%);
+            padding: 20px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #2a2a0a;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            gap: 15px;
+            width: 100%;
+        }
+        .site-logo-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+            flex-wrap: wrap;
+        }
+        .site-logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: contain;
+            background: #1a1a0a;
+            padding: 4px;
+            border: 2px solid #f59e0b;
+            flex-shrink: 0;
+        }
+        .site-name {
+            font-size: clamp(1rem, 2.5vw, 1.6rem);
+            font-weight: 800;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #f59e0b, #eab308, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            word-break: break-word;
+        }
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+        }
+        .btn {
+            padding: 11px 26px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            white-space: nowrap;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+        .btn-green {
+            background: var(--green);
+            color: var(--white);
+        }
+        .btn-green:hover {
+            background: var(--green-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.35);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--green);
+        }
+        .btn-outline:hover {
+            background: var(--green);
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+        }
+        .btn-red {
+            background: var(--red);
+            color: #fff;
+        }
+        .btn-red:hover {
+            background: var(--red-hover);
+        }
+        .btn-gold {
+            background: var(--gold);
+            color: #000;
+            font-weight: 800;
+        }
+        .btn-gold:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+        }
+        .btn-blue {
+            background: var(--blue-accent);
+            color: #fff;
+        }
+        .btn-blue:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.35);
+        }
+
+        /* ========== HERO SLIDESHOW ========== */
+        .hero-slideshow {
+            position: relative;
+            width: 100%;
+            height: clamp(300px, 45vw, 550px);
+            min-height: 280px;
+            overflow: hidden;
+            margin-top: 8px;
+            border-radius: 0;
+        }
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+        }
+        .hero-slide.active {
+            opacity: 1;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.65);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: clamp(15px, 3vw, 20px);
+            z-index: 5;
+        }
+        .hero-overlay h2 {
+            font-size: clamp(1.3rem, 4vw, 2.8rem);
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+            padding: 0 10px;
+        }
+        .hero-overlay .highlight-text {
+            font-size: clamp(0.8rem, 1.6vw, 1.1rem);
+            color: #fbbf24;
+            margin: 4px 0;
+            font-weight: 600;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
+            padding: 0 10px;
+        }
+        .hero-overlay .btn {
+            margin-top: clamp(12px, 2vw, 20px);
+            font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+            padding: clamp(10px, 1.8vw, 14px) clamp(22px, 4vw, 35px);
+        }
+        .risk-badge {
+            display: inline-block;
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            color: #fca5a5;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: clamp(0.6rem, 0.9vw, 0.75rem);
+            font-weight: 600;
+            margin-top: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        /* ========== SECTIONS ========== */
+        .section {
+            padding: clamp(30px, 5vw, 60px) 5%;
+            width: 100%;
+        }
+        .section-dark {
+            background: #0d0d0d;
+        }
+        .section h3 {
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #fff;
+            text-align: center;
+            word-break: break-word;
+        }
+        .three-col {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+        }
+        .three-col .card {
+            flex: 1 1 280px;
+            max-width: 380px;
+            min-width: 250px;
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 25px;
+            text-align: center;
+            border: 1px solid #2a2a2a;
+            transition: var(--transition);
+        }
+        .three-col .card:hover {
+            border-color: var(--green);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(34, 197, 94, 0.15);
+        }
+        .three-col .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .three-col .card h4 {
+            color: #fbbf24;
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            margin-bottom: 8px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        .feature-item {
+            background: var(--surface2);
+            padding: 25px 15px;
+            border-radius: var(--radius);
+            border: 1px solid #333;
+        }
+        .feature-item .num {
+            font-size: clamp(1.4rem, 2.5vw, 2rem);
+            font-weight: 900;
+            color: var(--green);
+        }
+        .feature-item .label {
+            color: #ccc;
+            margin-top: 5px;
+            font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+        }
+
+        .steps-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            width: 100%;
+        }
+        .steps-list li {
+            background: var(--surface);
+            padding: 20px 25px;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--green);
+            flex: 1 1 200px;
+            max-width: 280px;
+            min-width: 180px;
+            text-align: center;
+            font-weight: 600;
+            font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+        }
+        .steps-list li .step-num {
+            display: block;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 900;
+            color: var(--green);
+            margin-bottom: 8px;
+        }
+
+        .mt-logos {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .mt-logos img {
+            height: clamp(45px, 8vw, 70px);
+            object-fit: contain;
+            filter: brightness(0.9);
+            max-width: 100%;
+        }
+
+        .scrolling-withdrawals {
+            max-height: 350px;
+            overflow: hidden;
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 15px;
+            border: 1px solid #2a2a2a;
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+        }
+        .scrolling-inner {
+            animation: scrollUp 25s linear infinite;
+        }
+        @keyframes scrollUp {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-50%);
+            }
+        }
+        .scrolling-withdrawals:hover .scrolling-inner {
+            animation-play-state: paused;
+        }
+        .withdrawal-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 8px;
+            border-bottom: 1px solid #222;
+            font-size: 0.85rem;
+            flex-wrap: wrap;
+            gap: 5px;
+            word-break: break-all;
+        }
+        .withdrawal-row .wallet {
+            font-family: monospace;
+            color: #aaa;
+            font-size: clamp(0.65rem, 1vw, 0.75rem);
+            word-break: break-all;
+            flex: 1 1 auto;
+            min-width: 80px;
+        }
+        .status-completed {
+            color: #22c55e;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .status-processing {
+            color: #f59e0b;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
+        .testimonial-card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 20px;
+            border: 1px solid #2a2a2a;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        .testimonial-card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--green);
+            flex-shrink: 0;
+        }
+        .testimonial-card .quote {
+            font-style: italic;
+            color: #ccc;
+            font-size: clamp(0.8rem, 1.1vw, 0.9rem);
+        }
+        .testimonial-card .name {
+            font-weight: 700;
+            color: #fbbf24;
+            margin-top: 6px;
+        }
+        .testimonial-card .country {
+            font-size: 0.8rem;
+            color: #888;
+        }
+        .testimonial-card .verified-badge {
+            display: inline-block;
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-left: 6px;
+        }
+
+        .article-box {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: clamp(20px, 3vw, 30px);
+            border: 1px solid #2a2a2a;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            font-size: clamp(0.85rem, 1.2vw, 1rem);
+        }
+        .article-box h4 {
+            color: #fbbf24;
+            margin: 15px 0 8px;
+            font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+        }
+
+        .quick-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            width: 100%;
+        }
+        .quick-links a {
+            color: var(--green);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid #333;
+            font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+            white-space: nowrap;
+            cursor: pointer;
+        }
+        .quick-links a:hover {
+            background: var(--green);
+            color: #000;
+            border-color: var(--green);
+        }
+
+        .footer {
+            background: #050505;
+            padding: clamp(25px, 4vw, 40px) 5%;
+            text-align: center;
+            border-top: 2px solid #1a1a0a;
+            width: 100%;
+        }
+        .footer .partner-logos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        .footer .partner-logos img {
+            height: clamp(28px, 4vw, 40px);
+            object-fit: contain;
+            filter: grayscale(30%);
+            opacity: 0.8;
+            transition: var(--transition);
+            max-width: 100%;
+        }
+        .footer .partner-logos img:hover {
+            opacity: 1;
+            filter: grayscale(0);
+        }
+        .footer .copyright {
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 15px;
+        }
+        .footer .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 15px 0;
+        }
+        .footer .footer-links a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .footer .footer-links a:hover {
+            color: var(--green);
+        }
+        .footer .disclaimer {
+            color: #666;
+            font-size: 0.7rem;
+            max-width: 800px;
+            margin: 12px auto;
+            line-height: 1.5;
+            padding: 0 10px;
+        }
+
+        /* ========== MODALS ========== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .modal-overlay.show {
+            display: flex;
+        }
+        .modal-box {
+            background: #1a1a1a;
+            border-radius: 14px;
+            padding: clamp(20px, 3vw, 30px);
+            max-width: 700px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 2px solid #333;
+            position: relative;
+            margin: auto;
+        }
+        .modal-box h3 {
+            color: #fbbf24;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+        }
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 16px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #fff;
+            background: none;
+            border: none;
+            font-weight: 700;
+            z-index: 5;
+            padding: 5px 10px;
+        }
+        .modal-close:hover {
+            color: var(--red);
+        }
+
+        /* ========== FORMS ========== */
+        .form-group {
+            margin-bottom: 16px;
+            width: 100%;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #ccc;
+            font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #444;
+            background: #111;
+            color: #fff;
+            font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+            transition: var(--transition);
+            max-width: 100%;
+            font-family: inherit;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--green);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+        }
+        .error-msg {
+            color: var(--red);
+            font-size: 0.85rem;
+            margin-top: 4px;
+            display: none;
+            min-height: 20px;
+        }
+        .info-msg {
+            color: #93c5fd;
+            font-size: 0.8rem;
+            margin-top: 4px;
+            font-style: italic;
+        }
+        .required-star {
+            color: var(--red);
+        }
+
+        /* ========== DASHBOARD ========== */
+        .dashboard-header-img {
+            position: relative;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            background: #111;
+            padding: 8px;
+        }
+        .dashboard-header-img img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .dashboard-header-img .dash-title-wrapper {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 8px;
+        }
+        .dashboard-header-img h2 {
+            font-size: clamp(1.2rem, 3.5vw, 2.5rem);
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 2px 2px 15px #000;
+            position: relative;
+            z-index: 2;
+        }
+        .dash-stats {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px 0;
+            width: 100%;
+        }
+        .dash-stat-card {
+            background: var(--surface2);
+            padding: 18px 25px;
+            border-radius: var(--radius);
+            text-align: center;
+            border: 1px solid #333;
+            min-width: 130px;
+            flex: 1 1 140px;
+        }
+        .dash-stat-card .stat-val {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            font-weight: 900;
+            color: var(--green);
+            word-break: break-all;
+        }
+        .dash-stat-card .stat-lbl {
+            color: #aaa;
+            font-size: clamp(0.7rem, 1vw, 0.85rem);
+        }
+        .username-display {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: clamp(1.1rem, 2vw, 1.6rem);
+            color: #fbbf24;
+            text-align: center;
+            letter-spacing: 1px;
+            margin: 10px 0;
+            font-style: italic;
+            word-break: break-word;
+        }
+
+        .plan-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .plan-card {
+            background: #1c1c1c;
+            border-radius: 14px;
+            padding: clamp(18px, 2.5vw, 25px);
+            width: 240px;
+            max-width: 100%;
+            min-width: 200px;
+            text-align: center;
+            border: 2px solid #333;
+            transition: var(--transition);
+            position: relative;
+            flex: 1 1 220px;
+        }
+        .plan-card.plan-amateur {
+            border-color: #3b82f6;
+        }
+        .plan-card.plan-professional {
+            border-color: #8b5cf6;
+        }
+        .plan-card.plan-variety {
+            border-color: #f59e0b;
+        }
+        .plan-card.plan-fixed {
+            border-color: #14b8a6;
+        }
+        .plan-card.plan-superior {
+            border-color: #ef4444;
+        }
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+        .plan-card h4 {
+            font-size: clamp(1rem, 1.6vw, 1.3rem);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .plan-card .plan-price {
+            font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+            font-weight: 900;
+            color: #fff;
+        }
+        .plan-card .plan-roi {
+            color: #fbbf24;
+            font-weight: 700;
+            margin: 5px 0;
+        }
+        .plan-card .plan-alerts {
+            font-size: 0.85rem;
+            color: #aaa;
+            margin-bottom: 12px;
+        }
+        .plan-card .plan-duration {
+            font-size: 0.75rem;
+            color: #93c5fd;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+        .plan-card .btn-invest {
+            width: 100%;
+            padding: 12px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            transition: var(--transition);
+            background: var(--green);
+            color: #fff;
+            font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+        }
+        .plan-card .btn-invest.active-btn {
+            background: #22c55e;
+            color: #000;
+            cursor: default;
+            animation: pulse-green 1.5s infinite;
+        }
+        @keyframes pulse-green {
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+            }
+            50% {
+                box-shadow: 0 0 0 18px rgba(34, 197, 94, 0);
+            }
+        }
+        .plan-card .countdown {
+            font-size: 0.9rem;
+            color: #fbbf24;
+            font-weight: 700;
+            margin-top: 5px;
+        }
+        .plan-card .risk-level {
+            font-size: 0.7rem;
+            color: #fca5a5;
+            margin-top: 3px;
+            font-style: italic;
+        }
+
+        .success-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .success-popup.show {
+            display: flex;
+        }
+        .success-popup .popup-inner {
+            background: #1a1a1a;
+            border-radius: 16px;
+            padding: clamp(20px, 3vw, 30px);
+            text-align: center;
+            border: 2px solid #22c55e;
+            max-width: 450px;
+            width: 90%;
+        }
+        .success-popup .tick-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #22c55e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 2.5rem;
+            color: #fff;
+            font-weight: 900;
+        }
+
+        .warning-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .warning-popup.show {
+            display: flex;
+        }
+        .warning-popup .popup-inner {
+            background: #1a1a1a;
+            border-radius: 16px;
+            padding: clamp(18px, 3vw, 25px);
+            text-align: center;
+            border: 2px solid #ef4444;
+            max-width: 500px;
+            width: 90%;
+        }
+        .warning-popup .popup-inner .btn-row {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        #transaction-history {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--surface);
+            border-radius: 10px;
+            padding: 15px;
+            min-height: 60px;
+            border: 1px solid #333;
+            width: 100%;
+            overflow-x: auto;
+        }
+        #transaction-history>div {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #222;
+            flex-wrap: wrap;
+            gap: 5px;
+            font-size: clamp(0.7rem, 1vw, 0.9rem);
+        }
+
+        .compliance-bar {
+            background: #0d0d0d;
+            border-bottom: 1px solid #222;
+            padding: 6px 5%;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #777;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+        .compliance-bar span {
+            white-space: nowrap;
+        }
+        .compliance-bar .ssl-icon {
+            color: #22c55e;
+        }
+
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1a1a1a;
+            border-top: 2px solid #333;
+            padding: 15px 5%;
+            z-index: 9998;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #ccc;
+            text-align: center;
+        }
+        .cookie-banner button {
+            padding: 8px 20px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+        .cookie-accept {
+            background: var(--green);
+            color: #fff;
+        }
+        .cookie-settings {
+            background: transparent;
+            color: #ccc;
+            border: 1px solid #555;
+        }
+
+        /* ========== RESPONSIVE BREAKPOINTS ========== */
+        @media (max-width: 1200px) {
+            .three-col .card {
+                flex: 1 1 260px;
+                max-width: 350px;
+            }
+            .plan-card {
+                flex: 1 1 200px;
+                max-width: 260px;
+            }
+            .testimonial-grid {
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            }
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero-slideshow {
+                height: clamp(280px, 50vw, 400px);
+            }
+            .main-header {
+                padding: 15px 4%;
+                gap: 12px;
+            }
+            .site-logo-img {
+                width: 42px;
+                height: 42px;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
+            .section {
+                padding: 35px 4%;
+            }
+            .dashboard-header-img {
+                grid-template-columns: 1fr 1fr;
+            }
+            .dashboard-header-img img {
+                height: 120px;
+            }
+            .three-col .card {
+                flex: 1 1 240px;
+                max-width: 320px;
+            }
+            .steps-list li {
+                flex: 1 1 170px;
+                max-width: 240px;
+            }
+            .plan-card {
+                flex: 1 1 190px;
+                max-width: 240px;
+                padding: 18px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            html {
+                font-size: 15px;
+            }
+            .hero-slideshow {
+                height: clamp(250px, 60vw, 350px);
+                min-height: 240px;
+            }
+            .hero-overlay h2 {
+                font-size: clamp(1.1rem, 5vw, 1.6rem);
+                letter-spacing: 1px;
+            }
+            .hero-overlay .highlight-text {
+                font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+            }
+            .site-name {
+                font-size: clamp(0.9rem, 3vw, 1.1rem);
+                letter-spacing: 1px;
+            }
+            .main-header {
+                padding: 12px 3%;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                text-align: center;
+            }
+            .site-logo-title {
+                justify-content: center;
+            }
+            .header-buttons {
+                justify-content: center;
+                width: 100%;
+            }
+            .btn {
+                padding: 9px 18px;
+                font-size: 0.8rem;
+                border-radius: 22px;
+            }
+            .section {
+                padding: 30px 3%;
+            }
+            .section h3 {
+                font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+            }
+            .three-col {
+                gap: 18px;
+            }
+            .three-col .card {
+                flex: 1 1 220px;
+                max-width: 100%;
+                padding: 18px;
+            }
+            .three-col .card img {
+                height: 150px;
+            }
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            .steps-list {
+                gap: 15px;
+            }
+            .steps-list li {
+                flex: 1 1 150px;
+                max-width: 220px;
+                padding: 15px 18px;
+            }
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .testimonial-card {
+                flex-direction: row;
+                flex-wrap: nowrap;
+            }
+            .dashboard-header-img {
+                grid-template-columns: 1fr 1fr;
+                gap: 6px;
+                padding: 6px;
+            }
+            .dashboard-header-img img {
+                height: 100px;
+            }
+            .dashboard-header-img h2 {
+                font-size: clamp(1rem, 5vw, 1.5rem);
+            }
+            .plan-card {
+                flex: 1 1 180px;
+                max-width: 280px;
+                min-width: 160px;
+            }
+            .dash-stats {
+                gap: 12px;
+            }
+            .dash-stat-card {
+                padding: 14px 16px;
+                min-width: 110px;
+                flex: 1 1 120px;
+            }
+            .mt-logos {
+                gap: 20px;
+            }
+            .mt-logos img {
+                height: clamp(40px, 10vw, 55px);
+            }
+            .quick-links {
+                gap: 10px;
+            }
+            .quick-links a {
+                padding: 7px 12px;
+                font-size: 0.8rem;
+            }
+            .modal-box {
+                padding: 20px;
+                max-width: 95%;
+                border-radius: 12px;
+            }
+            .scrolling-withdrawals {
+                max-height: 280px;
+                padding: 10px;
+            }
+            .withdrawal-row {
+                font-size: 0.75rem;
+                padding: 8px 5px;
+            }
+            .compliance-bar {
+                gap: 8px;
+                font-size: 0.65rem;
+                padding: 5px 3%;
+            }
+            .cookie-banner {
+                flex-direction: column;
+                padding: 12px 3%;
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            html {
+                font-size: 14px;
+            }
+            .hero-slideshow {
+                height: clamp(220px, 70vw, 300px);
+                min-height: 200px;
+            }
+            .hero-overlay {
+                padding: 12px;
+            }
+            .hero-overlay h2 {
+                font-size: clamp(1rem, 5.5vw, 1.3rem);
+                letter-spacing: 1px;
+            }
+            .hero-overlay .highlight-text {
+                font-size: clamp(0.65rem, 2.8vw, 0.8rem);
+                margin: 2px 0;
+            }
+            .hero-overlay .btn {
+                margin-top: 10px;
+                padding: 10px 22px;
+                font-size: 0.8rem;
+            }
+            .main-header {
+                padding: 10px 2%;
+                gap: 8px;
+            }
+            .site-logo-img {
+                width: 36px;
+                height: 36px;
+            }
+            .site-name {
+                font-size: clamp(0.8rem, 3.5vw, 1rem);
+            }
+            .btn {
+                padding: 8px 15px;
+                font-size: 0.75rem;
+                border-radius: 20px;
+            }
+            .section {
+                padding: 25px 2%;
+            }
+            .section h3 {
+                font-size: clamp(1rem, 4vw, 1.2rem);
+            }
+            .three-col {
+                gap: 14px;
+            }
+            .three-col .card {
+                flex: 1 1 100%;
+                max-width: 100%;
+                min-width: auto;
+                padding: 16px;
+            }
+            .three-col .card img {
+                height: 140px;
+            }
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .feature-item {
+                padding: 18px 10px;
+            }
+            .feature-item .num {
+                font-size: 1.3rem;
+            }
+            .steps-list {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+            .steps-list li {
+                flex: 1 1 auto;
+                max-width: 100%;
+                width: 100%;
+                padding: 14px 16px;
+            }
+            .dashboard-header-img {
+                grid-template-columns: 1fr 1fr;
+                gap: 4px;
+                padding: 4px;
+            }
+            .dashboard-header-img img {
+                height: 80px;
+                border-radius: 6px;
+            }
+            .plan-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .plan-card {
+                width: 100%;
+                max-width: 320px;
+                flex: 1 1 auto;
+            }
+            .dash-stats {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            .dash-stat-card {
+                width: 100%;
+                max-width: 300px;
+                flex: 1 1 auto;
+            }
+            .testimonial-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .testimonial-card img {
+                width: 50px;
+                height: 50px;
+            }
+            .footer .partner-logos {
+                gap: 12px;
+            }
+            .footer .partner-logos img {
+                height: 28px;
+            }
+            .modal-box {
+                padding: 16px;
+                max-width: 100%;
+                border-radius: 10px;
+                max-height: 85vh;
+            }
+            .modal-close {
+                top: 6px;
+                right: 10px;
+                font-size: 1.3rem;
+            }
+            .scrolling-withdrawals {
+                max-height: 240px;
+                padding: 8px;
+            }
+            .withdrawal-row {
+                font-size: 0.7rem;
+                padding: 6px 4px;
+            }
+            .withdrawal-row .wallet {
+                font-size: 0.6rem;
+            }
+            .success-popup .popup-inner,
+            .warning-popup .popup-inner {
+                width: 95%;
+                padding: 18px;
+            }
+            .success-popup .tick-circle {
+                width: 55px;
+                height: 55px;
+                font-size: 2rem;
+            }
+            #transaction-history>div {
+                font-size: 0.7rem;
+                padding: 6px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                font-size: 13px;
+            }
+            .hero-slideshow {
+                height: clamp(180px, 80vw, 250px);
+                min-height: 170px;
+            }
+            .hero-overlay h2 {
+                font-size: 1rem;
+                letter-spacing: 0.5px;
+            }
+            .hero-overlay .highlight-text {
+                font-size: 0.7rem;
+                margin: 1px 0;
+            }
+            .hero-overlay .btn {
+                padding: 8px 16px;
+                font-size: 0.7rem;
+                border-radius: 20px;
+            }
+            .main-header {
+                padding: 8px 2%;
+                gap: 6px;
+            }
+            .site-logo-img {
+                width: 30px;
+                height: 30px;
+                padding: 2px;
+            }
+            .site-name {
+                font-size: 0.8rem;
+                letter-spacing: 0.5px;
+            }
+            .btn {
+                padding: 7px 12px;
+                font-size: 0.7rem;
+                border-radius: 18px;
+                letter-spacing: 0;
+            }
+            .header-buttons {
+                gap: 6px;
+            }
+            .section {
+                padding: 20px 2%;
+            }
+            .section h3 {
+                font-size: 1rem;
+                margin-bottom: 14px;
+            }
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            .feature-item {
+                padding: 14px 8px;
+                border-radius: 8px;
+            }
+            .feature-item .num {
+                font-size: 1.1rem;
+            }
+            .feature-item .label {
+                font-size: 0.7rem;
+            }
+            .three-col .card img {
+                height: 120px;
+            }
+            .three-col .card {
+                padding: 14px;
+            }
+            .dashboard-header-img {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+            .dashboard-header-img img {
+                height: 100px;
+            }
+            .dashboard-header-img img:nth-child(3),
+            .dashboard-header-img img:nth-child(4) {
+                display: none;
+            }
+            .dash-stat-card {
+                padding: 12px;
+                border-radius: 8px;
+            }
+            .dash-stat-card .stat-val {
+                font-size: 1rem;
+            }
+            .plan-card {
+                padding: 14px;
+                border-radius: 10px;
+            }
+            .plan-card h4 {
+                font-size: 0.9rem;
+            }
+            .plan-card .plan-price {
+                font-size: 1rem;
+            }
+            .testimonial-card {
+                padding: 14px;
+            }
+            .scrolling-withdrawals {
+                max-height: 200px;
+            }
+            .modal-box {
+                padding: 12px;
+                border-radius: 8px;
+            }
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 10px;
+                font-size: 0.8rem;
+            }
+            .btn {
+                padding: 8px 14px;
+                font-size: 0.7rem;
+            }
+            .success-popup .popup-inner,
+            .warning-popup .popup-inner {
+                padding: 14px;
+                border-radius: 10px;
+            }
+            .success-popup .tick-circle {
+                width: 45px;
+                height: 45px;
+                font-size: 1.6rem;
+            }
+            .quick-links a {
+                padding: 6px 10px;
+                font-size: 0.7rem;
+            }
+            .mt-logos img {
+                height: 35px;
+            }
+            .footer .partner-logos img {
+                height: 24px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            html {
+                font-size: 12px;
+            }
+            .hero-slideshow {
+                height: clamp(160px, 90vw, 200px);
+                min-height: 150px;
+            }
+            .hero-overlay h2 {
+                font-size: 0.85rem;
+            }
+            .hero-overlay .highlight-text {
+                font-size: 0.6rem;
+            }
+            .hero-overlay .btn {
+                padding: 6px 12px;
+                font-size: 0.65rem;
+            }
+            .main-header {
+                padding: 6px 1%;
+                gap: 4px;
+            }
+            .site-logo-img {
+                width: 26px;
+                height: 26px;
+            }
+            .site-name {
+                font-size: 0.7rem;
+            }
+            .btn {
+                padding: 6px 10px;
+                font-size: 0.65rem;
+                border-radius: 15px;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            .dashboard-header-img img {
+                height: 70px;
+            }
+            .plan-card {
+                min-width: auto;
+                width: 100%;
+            }
+            .three-col .card img {
+                height: 100px;
+            }
+            .scrolling-withdrawals {
+                max-height: 170px;
+            }
+            .modal-box {
+                padding: 10px;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .hero-slideshow {
+                height: 600px;
+            }
+            .section {
+                padding: 70px 8%;
+            }
+            .main-header {
+                padding: 22px 8%;
+            }
+            .three-col .card {
+                max-width: 420px;
+            }
+            .plan-card {
+                width: 260px;
+            }
+            .testimonial-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            #transaction-history {
+                max-width: 900px;
+            }
+        }
+
+        @media (min-width: 1800px) {
+            .hero-slideshow {
+                height: 650px;
+            }
+            .section {
+                padding: 80px 12%;
+            }
+            .main-header {
+                padding: 25px 12%;
+            }
+            .three-col .card {
+                max-width: 450px;
+            }
+            #transaction-history {
+                max-width: 1000px;
+            }
+        }
+
+        @media print {
+            body {
+                background: #fff;
+                color: #000;
+            }
+            .hero-slideshow,
+            .main-header,
+            .footer,
+            .btn,
+            .cookie-banner,
+            .compliance-bar {
+                display: none;
+            }
+            .page {
+                display: block !important;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .scrolling-inner {
+                animation: none;
+            }
+            .hero-slide {
+                transition: none;
+            }
+            * {
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== COMPLIANCE BAR ==================== -->
+    <div class="compliance-bar">
+        <span class="ssl-icon">🔒 256-bit SSL Encrypted</span>
+        <span>⚖️ Regulated Trading Platform</span>
+        <span>🛡️ KYC/AML Compliant</span>
+        <span>📍 Est. 2019</span>
+    </div>
+
+    <!-- ==================== LANDING PAGE ==================== -->
+    <div class="page active" id="landing-page">
+        <header class="main-header">
+            <div class="site-logo-title">
+                <img src="https://cdn-icons-png.flaticon.com/512/825/825540.png" alt="Mustard Global Investments Logo" class="site-logo-img"
+                onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%23f59e0b%22/><text x=%2250%22 y=%2265%22 text-anchor=%22middle%22 font-size=%2240%22 fill=%22%23000%22 font-weight=%22bold%22>MG</text></svg>'">
+                <span class="site-name">Mustard Global Investments</span>
+            </div>
+            <div class="header-buttons">
+                <button class="btn btn-outline" onclick="navigateTo('login-page')" aria-label="Login to your account">Login</button>
+                <button class="btn btn-green" onclick="navigateTo('register-page')" aria-label="Create a new account">Open Account</button>
+            </div>
+        </header>
+
+        <!-- Hero Slideshow -->
+        <div class="hero-slideshow" id="hero-slideshow">
+            <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&q=80');"></div>
+            <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=1200&q=80');"></div>
+            <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=1200&q=80');"></div>
+            <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1518546305927-5a4bbfe3a78a?w=1200&q=80');"></div>
+            <div class="hero-overlay">
+                <h2>Intelligent Algorithmic Trading</h2>
+                <p class="highlight-text">✔ AI-Powered Market Analysis & Execution</p>
+                <p class="highlight-text">✔ Advanced Machine Learning Trading Models</p>
+                <p class="highlight-text">✔ Trusted by Traders Worldwide</p>
+                <p class="highlight-text">✔ Multi-Asset Coverage: Crypto & Forex</p>
+                <span class="risk-badge">⚠ Trading involves risk. Past performance does not guarantee future results.</span>
+                <button class="btn btn-gold" onclick="navigateTo('register-page')">Start Trading Today</button>
+            </div>
+        </div>
+
+        <!-- Trading Around Clock, Active Markets, Risk You Define -->
+        <div class="section">
+            <div class="three-col">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=500&q=80" alt="Trading around the clock" onerror="this.style.background='#222';this.style.minHeight='180px'">
+                    <h4>24/7 Automated Trading</h4>
+                    <p>Our AI systems monitor global markets continuously, executing trades based on real-time data analysis across all major time zones.</p>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f193?w=500&q=80" alt="Active markets" onerror="this.style.background='#222';this.style.minHeight='180px'">
+                    <h4>Diverse Market Access</h4>
+                    <p>Access cryptocurrency and forex markets through a single unified platform with institutional-grade execution.</p>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80" alt="Risk that you define" onerror="this.style.background='#222';this.style.minHeight='180px'">
+                    <h4>Customizable Risk Parameters</h4>
+                    <p>Choose from multiple AI trading strategies tailored to your individual risk tolerance and investment goals.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="section section-dark">
+            <h3>Platform Performance Overview</h3>
+            <div class="features-grid">
+                <div class="feature-item"><span class="num">9K+</span><div class="label">Registered Users</div></div>
+                <div class="feature-item"><span class="num">5K+</span><div class="label">Daily Transactions</div></div>
+                <div class="feature-item"><span class="num">$50M+</span><div class="label">Total Volume Traded</div></div>
+                <div class="feature-item"><span class="num">$12M+</span><div class="label">Client Withdrawals Processed</div></div>
+            </div>
+        </div>
+
+        <!-- How It Works -->
+        <div class="section">
+            <h3>How To Get Started</h3>
+            <ul class="steps-list">
+                <li><span class="step-num">1</span>Create your free account and complete identity verification</li>
+                <li><span class="step-num">2</span>Fund your account using supported cryptocurrencies</li>
+                <li><span class="step-num">3</span>Select an AI trading strategy that matches your goals</li>
+                <li><span class="step-num">4</span>Monitor performance with real-time analytics dashboard</li>
+                <li><span class="step-num">5</span>Withdraw earnings according to your plan's schedule</li>
+            </ul>
+        </div>
+
+        <!-- MetaTrader Logos -->
+        <div class="section section-dark">
+            <h3>Powered by Industry-Leading Trading Infrastructure</h3>
+            <div class="mt-logos">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/MetaTrader_4_logo.svg/512px-MetaTrader_4_logo.svg.png" alt="MetaTrader 4" onerror="this.style.minWidth='180px';this.style.background='#222';this.style.borderRadius='8px'">
+                <img src="https://www.metatrader5.com/assets/images/logos/mt5-logo.svg" alt="MetaTrader 5" onerror="this.style.minWidth='180px';this.style.background='#222';this.style.borderRadius='8px'">
+            </div>
+            <p style="text-align:center;color:#888;margin-top:12px;font-size:0.85rem;">Integrated with MetaTrader 4 & 5 for reliable trade execution and advanced charting</p>
+        </div>
+
+        <!-- Latest Withdrawals -->
+        <div class="section">
+            <h3>Recent Client Withdrawals</h3>
+            <p style="text-align:center;color:#888;margin-bottom:15px;font-size:0.85rem;">Showing verified withdrawals from the past 24 hours</p>
+            <div class="scrolling-withdrawals" id="scrolling-withdrawals">
+                <div class="scrolling-inner" id="scrolling-inner"></div>
+            </div>
+        </div>
+
+        <!-- Why Choose Us -->
+        <div class="section section-dark" id="why-choose-us">
+            <h3>Why Choose Mustard Global Investments</h3>
+            <div class="article-box">
+                <p><strong>Mustard Global Investments</strong> is a technology-focused trading firm specializing in AI-powered algorithmic trading solutions. Our proprietary machine learning models are developed by a team of quantitative analysts and software engineers with extensive experience in financial markets.</p>
+                <h4>🔹 Proprietary AI Technology</h4>
+                <p>Our algorithms leverage deep learning and statistical analysis trained on extensive market datasets to identify trading opportunities with defined risk parameters.</p>
+                <h4>🔹 Operational Transparency</h4>
+                <p>All trading activity is logged and accessible through your dashboard. We provide detailed performance reports and real-time position monitoring.</p>
+                <h4>🔹 Diverse Strategy Selection</h4>
+                <p>From conservative to growth-oriented strategies, our platform offers multiple approaches to suit different investor profiles and market conditions.</p>
+                <h4>🔹 Efficient Withdrawal Processing</h4>
+                <p>Withdrawal requests are processed within 24-48 business hours, subject to standard verification procedures and plan terms.</p>
+                <h4>🔹 Dedicated Client Support</h4>
+                <p>Our support team is available via email and ticket system to assist with account inquiries and technical questions.</p>
+                <h4>🔹 Enterprise-Grade Security</h4>
+                <p>We employ bank-level encryption, cold storage for digital assets, and multi-factor authentication to protect client accounts and data.</p>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="section">
+            <h3>Client Experiences</h3>
+            <div class="testimonial-grid" id="testimonial-grid"></div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="section section-dark" id="faq-section">
+            <h3>Frequently Asked Questions</h3>
+            <div class="article-box">
+                <h4>🔆 What is algorithmic trading?</h4>
+                <p>Algorithmic trading uses computer programs and AI models to execute trades based on predefined criteria, analyzing market data faster than manual trading.</p>
+                <h4>🔆 How do I fund my account?</h4>
+                <p>We currently support Bitcoin (BTC) and USDT (ERC20) deposits. Navigate to the Fund Wallet section after registration for wallet addresses.</p>
+                <h4>🔆 What are the risks involved?</h4>
+                <p>All trading carries inherent risk. Market volatility can affect returns, and past performance does not guarantee future results. We encourage all clients to review our Risk Disclosure.</p>
+                <h4>🔆 How long do withdrawals take?</h4>
+                <p>Withdrawals are typically processed within 24-48 business hours after verification. Minimum withdrawal amount is $200.</p>
+                <h4>🔆 Is my data secure?</h4>
+                <p>Yes. We use 256-bit SSL encryption, cold storage for assets, and comply with data protection standards to safeguard your information.</p>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="section">
+            <h3>Quick Links</h3>
+            <div class="quick-links">
+                <a onclick="navigateTo('register-page')">Register</a>
+                <a onclick="navigateTo('login-page')">Login</a>
+                <a onclick="document.getElementById('why-choose-us').scrollIntoView({behavior:'smooth'})">About Us</a>
+                <a onclick="document.getElementById('faq-section').scrollIntoView({behavior:'smooth'})">FAQ</a>
+                <a onclick="document.getElementById('contact-section').scrollIntoView({behavior:'smooth'})">Contact</a>
+                <a onclick="openModal('privacy-modal')">Privacy Policy</a>
+                <a onclick="openModal('risk-modal')">Risk Disclosure</a>
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="section section-dark" id="contact-section">
+            <h3>Contact Us</h3>
+            <div style="max-width:600px;margin:0 auto;text-align:center;">
+                <p style="font-size:clamp(0.9rem,1.5vw,1.1rem);word-break:break-all;">📧 support@mustardglobalinvestments.com</p>
+                <p style="font-size:clamp(0.9rem,1.5vw,1.1rem);word-break:break-all;">📍 78 King William Street, London EC4N 7AF, United Kingdom</p>
+                <p style="font-size:0.8rem;color:#888;">Company Registration: #12859472 | Registered in England & Wales</p>
+                <p style="font-size:0.75rem;color:#777;margin-top:8px;">Business hours: Monday - Friday, 9:00 AM - 6:00 PM GMT</p>
+            </div>
+        </div>
+
+        <!-- Partners -->
+        <div class="footer">
+            <div class="partner-logos">
+                <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin" onerror="this.style.display='none'">
+                <img src="https://cryptologos.cc/logos/tether-usdt-logo.png" alt="USDT" onerror="this.style.display='none'">
+                <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum" onerror="this.style.display='none'">
+                <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png" alt="Binance" onerror="this.style.display='none'">
+                <img src="https://cryptologos.cc/logos/trust-wallet-token-twt-logo.png" alt="Trust Wallet" onerror="this.style.display='none'">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/512px-MetaMask_Fox.svg.png" alt="MetaMask" style="height:40px;" onerror="this.style.display='none'">
+            </div>
+            <div class="footer-links">
+                <a onclick="openModal('privacy-modal')">Privacy Policy</a>
+                <a onclick="openModal('terms-modal')">Terms & Conditions</a>
+                <a onclick="openModal('risk-modal')">Risk Disclosure</a>
+                <a onclick="openModal('kyc-modal')">KYC/AML Policy</a>
+                <a onclick="document.getElementById('contact-section').scrollIntoView({behavior:'smooth'})">Contact Us</a>
+            </div>
+            <p style="color:#ccc;max-width:700px;margin:0 auto 10px;font-size:clamp(0.75rem,1.1vw,0.9rem);padding:0 10px;">Mustard Global Investments provides AI-powered algorithmic trading tools. Our platform is designed for informed traders who understand the risks associated with financial markets.</p>
+            <p class="disclaimer">Risk Warning: Trading in cryptocurrencies and forex involves substantial risk of loss and is not suitable for all investors. You should carefully consider your financial situation, risk tolerance, and investment objectives before trading. Past performance of any trading system or methodology is not indicative of future results. Mustard Global Investments does not guarantee any specific investment returns. Please read our full Risk Disclosure before investing.</p>
+            <p class="copyright">© 2019-2026 Mustard Global Investments. All Rights Reserved. | Company No. 12859472 | Registered in England & Wales</p>
+        </div>
+    </div>
+
+    <!-- ==================== LOGIN PAGE ==================== -->
+    <div class="page" id="login-page">
+        <header class="main-header">
+            <div class="site-logo-title">
+                <span class="site-name">Mustard Global Investments</span>
+            </div>
+            <div class="header-buttons">
+                <button class="btn btn-outline" onclick="navigateTo('landing-page')">← Home</button>
+            </div>
+        </header>
+        <div style="max-width:450px;margin:60px auto;padding:clamp(20px,3vw,30px);background:var(--surface);border-radius:14px;border:1px solid #333;width:92%;">
+            <h3 style="text-align:center;color:#fbbf24;">Account Login</h3>
+            <div class="form-group"><label>Username <span class="required-star">*</span></label><input type="text" id="login-username" placeholder="Enter your username" autocomplete="username"></div>
+            <div class="form-group"><label>Password <span class="required-star">*</span></label><input type="password" id="login-password" placeholder="Enter your password" autocomplete="current-password"></div>
+            <p class="error-msg" id="login-error" style="display:block;text-align:center;min-height:20px;"></p>
+            <button class="btn btn-green" style="width:100%;" onclick="handleLogin()">Login Securely</button>
+            <p style="text-align:center;margin-top:15px;font-size:0.85rem;">Don't have an account? <a onclick="navigateTo('register-page')" style="color:#22c55e;cursor:pointer;font-weight:700;">Register Here</a></p>
+            <p style="text-align:center;margin-top:8px;font-size:0.7rem;color:#888;">🔒 Your connection is encrypted with 256-bit SSL</p>
+        </div>
+    </div>
+
+    <!-- ==================== REGISTER PAGE ==================== -->
+    <div class="page" id="register-page">
+        <header class="main-header">
+            <div class="site-logo-title">
+                <span class="site-name">Mustard Global Investments</span>
+            </div>
+            <div class="header-buttons">
+                <button class="btn btn-outline" onclick="navigateTo('landing-page')">← Home</button>
+            </div>
+        </header>
+        <div style="max-width:500px;margin:40px auto;padding:clamp(20px,3vw,30px);background:var(--surface);border-radius:14px;border:1px solid #333;width:92%;">
+            <h3 style="text-align:center;color:#fbbf24;">Create Your Account</h3>
+            <p style="text-align:center;font-size:0.8rem;color:#888;margin-bottom:15px;">All fields marked with <span class="required-star">*</span> are required</p>
+            <div class="form-group"><label>Full Name <span class="required-star">*</span></label><input type="text" id="reg-name" placeholder="Enter your legal full name"></div>
+            <div class="form-group"><label>Username <span class="required-star">*</span></label><input type="text" id="reg-username" placeholder="Choose a username" autocomplete="off"></div>
+            <div class="form-group"><label>Email Address <span class="required-star">*</span></label><input type="email" id="reg-email" placeholder="Enter your email address" autocomplete="email"></div>
+            <div class="form-group"><label>Password <span class="required-star">*</span></label><input type="password" id="reg-password" placeholder="Create a strong password" autocomplete="new-password"><small style="color:#aaa;">Minimum 8 characters, include letters and numbers</small></div>
+            <div class="form-group"><label>Date of Birth <span class="required-star">*</span></label><input type="date" id="reg-dob"><small style="color:#aaa;">You must be at least 18 years old</small></div>
+            <div class="form-group"><label>Country of Residence <span class="required-star">*</span></label><select id="reg-country"><option value="">Select Country</option><option>United States</option><option>United Kingdom</option><option>Canada</option><option>Australia</option><option>Germany</option><option>Nigeria</option><option>South Africa</option><option>India</option><option>Brazil</option><option>United Arab Emirates</option><option>Japan</option><option>Mexico</option><option>Singapore</option><option>France</option><option>Other</option></select></div>
+            <div class="form-group" style="display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap;">
+                <input type="checkbox" id="reg-agree" style="width:auto;flex-shrink:0;margin-top:3px;">
+                <label for="reg-agree" style="margin:0;font-size:0.85rem;">I confirm that I am at least 18 years old and I have read, understood, and agree to the <a onclick="openModal('terms-modal')" style="color:#22c55e;cursor:pointer;font-weight:700;">Terms & Conditions</a>, <a onclick="openModal('privacy-modal')" style="color:#22c55e;cursor:pointer;font-weight:700;">Privacy Policy</a>, and <a onclick="openModal('risk-modal')" style="color:#22c55e;cursor:pointer;font-weight:700;">Risk Disclosure</a>.</label>
+            </div>
+            <p class="error-msg" id="reg-error" style="display:block;text-align:center;min-height:20px;"></p>
+            <button class="btn btn-green" style="width:100%;" onclick="handleRegister()">Create Account</button>
+            <p style="text-align:center;margin-top:15px;font-size:0.85rem;">Already have an account? <a onclick="navigateTo('login-page')" style="color:#22c55e;cursor:pointer;font-weight:700;">Login Here</a></p>
+        </div>
+    </div>
+
+    <!-- ==================== DASHBOARD PAGE ==================== -->
+    <div class="page" id="dashboard-page">
+        <header class="main-header">
+            <div class="site-logo-title">
+                <span class="site-name">Mustard Global Investments</span>
+            </div>
+            <div class="header-buttons">
+                <button class="btn btn-red" onclick="handleLogout()">Logout</button>
+            </div>
+        </header>
+        <div style="padding:clamp(12px,3vw,20px) 5%;width:100%;">
+            <div class="dashboard-header-img">
+                <img src="https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=400&q=80" style="width:100%;height:140px;object-fit:cover;border-radius:8px;" onerror="this.style.background='#222'" alt="Dashboard image 1">
+                <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&q=80" style="width:100%;height:140px;object-fit:cover;border-radius:8px;" onerror="this.style.background='#222'" alt="Dashboard image 2">
+                <img src="https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=400&q=80" style="width:100%;height:140px;object-fit:cover;border-radius:8px;" onerror="this.style.background='#222'" alt="Dashboard image 3">
+                <img src="https://images.unsplash.com/photo-1518546305927-5a4bbfe3a78a?w=400&q=80" style="width:100%;height:140px;object-fit:cover;border-radius:8px;" onerror="this.style.background='#222'" alt="Dashboard image 4">
+                <div class="dash-title-wrapper"><h2>📊 Trading Dashboard 📊</h2></div>
+            </div>
+            <p class="username-display" id="dashboard-username"></p>
+            <div class="dash-stats">
+                <div class="dash-stat-card"><div class="stat-val" id="dash-deposited">$0.00</div><div class="stat-lbl">Account Balance</div></div>
+                <div class="dash-stat-card"><div class="stat-val" id="dash-withdrawable">$0.00</div><div class="stat-lbl">Available for Withdrawal</div></div>
+            </div>
+            <div style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap;margin:15px 0;">
+                <button class="btn btn-green" onclick="navigateTo('fund-wallet-page')">💰 Deposit Funds</button>
+                <button class="btn btn-outline" onclick="navigateTo('withdraw-page')">💸 Withdraw</button>
+            </div>
+            <p style="text-align:center;color:#fca5a5;font-size:0.75rem;margin-top:5px;">⚠ Trading involves risk. Please review our Risk Disclosure before investing.</p>
+            <h3 style="text-align:center;margin-top:30px;">Available Trading Strategies</h3>
+            <div class="plan-container" id="plan-container"></div>
+            <h3 style="text-align:center;margin-top:30px;">Transaction History</h3>
+            <div id="transaction-history" style="overflow-x:auto;"></div>
+        </div>
+    </div>
+
+    <!-- ==================== FUND WALLET PAGE ==================== -->
+    <div class="page" id="fund-wallet-page">
+        <header class="main-header">
+            <div class="site-logo-title"><span class="site-name">Deposit Funds</span></div>
+            <div class="header-buttons"><button class="btn btn-outline" onclick="navigateTo('dashboard-page')">← Back to Dashboard</button></div>
+        </header>
+        <div style="max-width:600px;margin:40px auto;padding:clamp(18px,3vw,25px);background:var(--surface);border-radius:14px;border:1px solid #333;width:92%;">
+            <h3 style="color:#fbbf24;text-align:center;font-size:clamp(1rem,1.8vw,1.3rem);">Fund Your Trading Account</h3>
+            <p style="text-align:center;color:#aaa;font-size:0.85rem;margin-bottom:15px;">Send funds to one of the wallet addresses below, then proceed to verification.</p>
+            <div style="background:#111;padding:15px;border-radius:10px;margin:15px 0;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="BTC" style="width:40px;height:40px;flex-shrink:0;" onerror="this.style.display='none'">
+                <div style="word-break:break-all;flex:1;min-width:180px;"><strong>Bitcoin (BTC) Wallet</strong><br><span style="font-family:monospace;font-size:clamp(0.65rem,1vw,0.8rem);word-break:break-all;">bc1qr5mtknzfleaxrngp2w8ne72gue3p92r43pwvkk</span></div>
+            </div>
+            <div style="background:#111;padding:15px;border-radius:10px;margin:15px 0;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                <img src="https://cryptologos.cc/logos/tether-usdt-logo.png" alt="USDT" style="width:40px;height:40px;flex-shrink:0;" onerror="this.style.display='none'">
+                <div style="word-break:break-all;flex:1;min-width:180px;"><strong>USDT (ERC20) Wallet</strong><br><span style="font-family:monospace;font-size:clamp(0.65rem,1vw,0.8rem);word-break:break-all;">0x39C95eFda8870BA6b7C7CCf3295e6f433AF7C275</span></div>
+            </div>
+            <p style="color:#fca5a5;font-size:0.75rem;text-align:center;margin:10px 0;">⚠ Only send BTC or USDT (ERC20 network). Sending other assets may result in permanent loss.</p>
+            <button class="btn btn-green" style="width:100%;" onclick="navigateTo('payment-verification-page')">Proceed to Verification →</button>
+        </div>
+    </div>
+
+    <!-- ==================== PAYMENT VERIFICATION PAGE ==================== -->
+    <div class="page" id="payment-verification-page">
+        <header class="main-header">
+            <div class="site-logo-title"><span class="site-name">Payment Verification</span></div>
+            <div class="header-buttons"><button class="btn btn-outline" onclick="navigateTo('fund-wallet-page')">← Back</button></div>
+        </header>
+        <div style="max-width:550px;margin:40px auto;padding:clamp(18px,3vw,25px);background:var(--surface);border-radius:14px;border:1px solid #333;text-align:center;width:92%;">
+            <h3 style="color:#fbbf24;font-size:clamp(1rem,1.8vw,1.3rem);">Verify Your Deposit</h3>
+            <p style="font-size:clamp(0.8rem,1.2vw,1rem);">After sending funds, please email our verification team at:</p>
+            <p style="color:#22c55e;font-weight:700;word-break:break-all;font-size:clamp(0.85rem,1.2vw,1rem);">support@mustardglobalinvestments.com</p>
+            <p style="color:#aaa;font-size:clamp(0.75rem,1vw,0.9rem);">Include your username and transaction details. Our team will verify your payment and send a confirmation code within 1-2 business hours.</p>
+            <p style="color:#93c5fd;font-size:0.75rem;">You will need this code to complete the deposit process.</p>
+            <button class="btn btn-green" style="margin-top:15px;" onclick="navigateTo('payment-processing-page')">I Have the Code →</button>
+        </div>
+    </div>
+
+    <!-- ==================== PAYMENT PROCESSING PAGE ==================== -->
+    <div class="page" id="payment-processing-page">
+        <header class="main-header">
+            <div class="site-logo-title"><span class="site-name">Complete Deposit</span></div>
+            <div class="header-buttons"><button class="btn btn-outline" onclick="navigateTo('payment-verification-page')">← Back</button></div>
+        </header>
+        <div style="max-width:500px;margin:40px auto;padding:clamp(18px,3vw,25px);background:var(--surface);border-radius:14px;border:1px solid #333;width:92%;">
+            <h3 style="color:#fbbf24;text-align:center;font-size:clamp(1rem,1.8vw,1.3rem);">Process Your Deposit</h3>
+            <div class="form-group"><label>Amount Sent (USD Equivalent) <span class="required-star">*</span></label><input type="number" id="deposit-amount" placeholder="Enter the USD value of crypto sent" min="1" step="0.01"></div>
+            <div class="form-group"><label>Your Registered Email <span class="required-star">*</span></label><input type="email" id="deposit-email" placeholder="Enter your email address"></div>
+            <div class="form-group"><label>Verification Code <span class="required-star">*</span></label><input type="text" id="deposit-code" placeholder="Enter the code from our team"><small style="color:#aaa;">Format: 8 characters</small></div>
+            <p class="error-msg" id="deposit-error" style="display:block;text-align:center;min-height:20px;"></p>
+            <button class="btn btn-green" style="width:100%;" onclick="handleDepositProcess()">Confirm Deposit</button>
+            <p style="text-align:center;margin-top:10px;font-size:0.7rem;color:#888;">🔒 All deposit information is transmitted securely</p>
+        </div>
+    </div>
+
+    <!-- ==================== WITHDRAW PAGE ==================== -->
+    <div class="page" id="withdraw-page">
+        <header class="main-header">
+            <div class="site-logo-title"><span class="site-name">Withdraw Funds</span></div>
+            <div class="header-buttons"><button class="btn btn-outline" onclick="navigateTo('dashboard-page')">← Back to Dashboard</button></div>
+        </header>
+        <div style="max-width:500px;margin:40px auto;padding:clamp(18px,3vw,25px);background:var(--surface);border-radius:14px;border:1px solid #333;width:92%;">
+            <h3 style="color:#fbbf24;text-align:center;font-size:clamp(1rem,1.8vw,1.3rem);">Request Withdrawal</h3>
+            <p style="text-align:center;color:#aaa;font-size:0.8rem;">Minimum withdrawal: $200. Processing time: 24-48 business hours.</p>
+            <div class="form-group"><label>Amount (USD) <span class="required-star">*</span></label><input type="number" id="withdraw-amount" placeholder="Minimum $200" min="200" step="0.01"></div>
+            <div class="form-group"><label>Cryptocurrency <span class="required-star">*</span></label><select id="withdraw-crypto"><option value="">Select cryptocurrency</option><option value="BTC">Bitcoin (BTC)</option><option value="USDT">USDT (ERC20)</option></select></div>
+            <div class="form-group"><label>Destination Wallet Address <span class="required-star">*</span></label><input type="text" id="withdraw-wallet" placeholder="Enter your receiving wallet address"><small style="color:#fca5a5;">Double-check your wallet address. Transactions cannot be reversed.</small></div>
+            <p class="error-msg" id="withdraw-error" style="display:block;text-align:center;min-height:20px;"></p>
+            <button class="btn btn-green" style="width:100%;" onclick="handleWithdrawRequest()">Submit Withdrawal Request</button>
+        </div>
+    </div>
+
+    <!-- ==================== MODALS ==================== -->
+    <!-- Terms & Conditions Modal -->
+    <div class="modal-overlay" id="terms-modal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal('terms-modal')">✕</button>
+            <h3>Terms & Conditions</h3>
+            <div style="font-size:clamp(0.8rem,1.1vw,0.9rem);line-height:1.7;color:#ccc;">
+                <p><strong>Last Updated:</strong> January 2026</p>
+                <p><strong>Mustard Global Investments</strong> ("the Company," "we," "us," or "our") provides algorithmic trading technology and related services. By accessing or using our platform, you agree to be bound by these Terms & Conditions.</p>
+                <h4 style="color:#fbbf24;">1. Eligibility</h4>
+                <p>You must be at least 18 years of age and have the legal capacity to enter into a binding agreement. You are responsible for ensuring compliance with all applicable laws in your jurisdiction.</p>
+                <h4 style="color:#fbbf24;">2. Account Registration</h4>
+                <p>You agree to provide accurate, current, and complete information during registration. You are responsible for maintaining the confidentiality of your login credentials.</p>
+                <h4 style="color:#fbbf24;">3. Risk Acknowledgment</h4>
+                <p>Trading in cryptocurrencies and forex markets involves substantial risk. You acknowledge that you may lose some or all of your invested capital. Past performance does not guarantee future results.</p>
+                <h4 style="color:#fbbf24;">4. Prohibited Activities</h4>
+                <p>Users are strictly prohibited from engaging in money laundering, fraud, terrorist financing, or any illegal activities. We reserve the right to freeze accounts and report suspicious activity to relevant authorities.</p>
+                <h4 style="color:#fbbf24;">5. Withdrawals</h4>
+                <p>Withdrawals are processed within 24-48 business hours subject to verification. Minimum withdrawal is $200. Additional verification may be required for large withdrawals.</p>
+                <h4 style="color:#fbbf24;">6. Limitation of Liability</h4>
+                <p>The Company is not liable for losses arising from market volatility, technical issues, or user error. Our services are provided on an "as is" basis.</p>
+                <p>For the complete Terms & Conditions, please contact our support team.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div class="modal-overlay" id="privacy-modal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal('privacy-modal')">✕</button>
+            <h3>Privacy Policy</h3>
+            <div style="font-size:clamp(0.8rem,1.1vw,0.9rem);line-height:1.7;color:#ccc;">
+                <p><strong>Last Updated:</strong> January 2026</p>
+                <p>Mustard Global Investments is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal information.</p>
+                <h4 style="color:#fbbf24;">Information We Collect</h4>
+                <p>We collect information you provide during registration including name, email, country of residence, and date of birth for KYC/AML compliance purposes.</p>
+                <h4 style="color:#fbbf24;">How We Use Your Information</h4>
+                <p>Your data is used to provide our services, verify your identity, process transactions, and communicate important account information.</p>
+                <h4 style="color:#fbbf24;">Data Security</h4>
+                <p>We employ 256-bit SSL encryption, secure servers, and access controls to protect your data. We do not sell or share your personal information with third parties except as required by law.</p>
+                <h4 style="color:#fbbf24;">Your Rights</h4>
+                <p>You may request access to, correction of, or deletion of your personal data by contacting our support team.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Risk Disclosure Modal -->
+    <div class="modal-overlay" id="risk-modal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal('risk-modal')">✕</button>
+            <h3>Risk Disclosure Statement</h3>
+            <div style="font-size:clamp(0.8rem,1.1vw,0.9rem);line-height:1.7;color:#ccc;">
+                <p><strong>Important Risk Warning</strong></p>
+                <p>Trading in cryptocurrencies, forex, and other financial instruments involves significant risk of loss and may not be suitable for all investors. You should carefully consider your financial situation, risk tolerance, and investment objectives before trading.</p>
+                <h4 style="color:#fbbf24;">Key Risks Include:</h4>
+                <ul style="padding-left:20px;">
+                    <li><strong>Market Risk:</strong> Prices can fluctuate dramatically in short periods.</li>
+                    <li><strong>Liquidity Risk:</strong> Some assets may become difficult to trade.</li>
+                    <li><strong>Technology Risk:</strong> Algorithmic trading systems can experience errors or downtime.</li>
+                    <li><strong>Regulatory Risk:</strong> Changes in laws may affect trading activities.</li>
+                </ul>
+                <p>No trading system, including AI-powered algorithms, can guarantee profits. Past performance is not indicative of future results. You should never invest more than you can afford to lose.</p>
+                <p>By using our platform, you acknowledge that you have read and understood this risk disclosure.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- KYC/AML Policy Modal -->
+    <div class="modal-overlay" id="kyc-modal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal('kyc-modal')">✕</button>
+            <h3>KYC & AML Policy</h3>
+            <div style="font-size:clamp(0.8rem,1.1vw,0.9rem);line-height:1.7;color:#ccc;">
+                <p>Mustard Global Investments complies with Know Your Customer (KYC) and Anti-Money Laundering (AML) regulations.</p>
+                <h4 style="color:#fbbf24;">Identity Verification</h4>
+                <p>All users must complete identity verification by providing accurate personal information during registration. Additional documentation may be requested for certain transactions.</p>
+                <h4 style="color:#fbbf24;">Transaction Monitoring</h4>
+                <p>We monitor transactions for suspicious activity and may request additional information to verify the legitimacy of deposits and withdrawals.</p>
+                <h4 style="color:#fbbf24;">Reporting Obligations</h4>
+                <p>We are obligated to report suspicious activities to relevant regulatory authorities. Accounts involved in illegal activities will be immediately suspended.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Warning Popup -->
+    <div class="warning-popup" id="warning-popup">
+        <div class="popup-inner">
+            <h3 style="color:#ef4444;">⚠️ Confirm Transaction</h3>
+            <p id="warning-msg" style="word-break:break-word;"></p>
+            <p style="font-size:0.75rem;color:#fca5a5;">Please verify all details. Cryptocurrency transactions are irreversible.</p>
+            <div class="btn-row">
+                <button class="btn btn-red" id="warning-cancel">Cancel</button>
+                <button class="btn btn-green" id="warning-proceed">Confirm & Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Popup -->
+    <div class="success-popup" id="success-popup">
+        <div class="popup-inner">
+            <div class="tick-circle">✓</div>
+            <h3 style="color:#22c55e;">Request Submitted</h3>
+            <p id="success-msg" style="word-break:break-word;"></p>
+            <button class="btn btn-green" onclick="closeSuccessPopup()">OK</button>
+        </div>
+    </div>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookie-banner">
+        <span>🍪 This website uses cookies to enhance your browsing experience, analyze site traffic, and personalize content. By continuing to use our site, you consent to our use of cookies.</span>
+        <button class="cookie-accept" onclick="acceptCookies()">Accept All</button>
+        <button class="cookie-settings" onclick="acceptCookies()">Essential Only</button>
+        <a onclick="openModal('privacy-modal')" style="color:#22c55e;cursor:pointer;font-size:0.8rem;">Learn More</a>
+    </div>
+
+    <script>
+        // ==================== GLOBAL STATE ====================
+        const USED_CODES_KEY = 'mgi_used_codes_v2';
+        const USERS_KEY = 'mgi_users_v2';
+        const CURRENT_USER_KEY = 'mgi_current_user_v2';
+        const INVESTMENTS_KEY_PREFIX = 'mgi_investments_';
+        const COOKIE_CONSENT_KEY = 'mgi_cookie_consent';
+
+        function getUsedCodes() { try { return JSON.parse(localStorage.getItem(USED_CODES_KEY) || '[]'); } catch (e) { return []; } }
+
+        function addUsedCode(code) { const c = getUsedCodes();
+            c.push(code);
+            localStorage.setItem(USED_CODES_KEY, JSON.stringify(c)); }
+
+        function isCodeUsed(code) { return getUsedCodes().includes(code); }
+
+        function getUsers() { try { return JSON.parse(localStorage.getItem(USERS_KEY) || '{}'); } catch (e) { return {}; } }
+
+        function saveUsers(users) { localStorage.setItem(USERS_KEY, JSON.stringify(users)); }
+
+        function getCurrentUser() { try { return JSON.parse(localStorage.getItem(CURRENT_USER_KEY) || 'null'); } catch (e) { return null; } }
+
+        function setCurrentUser(username) { localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(username)); }
+
+        function getInvestments(username) { try { return JSON.parse(localStorage.getItem(INVESTMENTS_KEY_PREFIX + username) || '[]'); } catch (e) { return []; } }
+
+        function saveInvestments(username, investments) { localStorage.setItem(INVESTMENTS_KEY_PREFIX + username, JSON.stringify(investments)); }
+
+        function getTransactionHistory(username) { try { return JSON.parse(localStorage.getItem('mgi_tx_' + username) || '[]'); } catch (e) { return []; } }
+
+        function saveTransactionHistory(username, tx) { localStorage.setItem('mgi_tx_' + username, JSON.stringify(tx)); }
+
+        function addTransaction(username, type, amount, details) {
+            const tx = getTransactionHistory(username);
+            tx.unshift({ type, amount, details, time: new Date().toLocaleString() });
+            if (tx.length > 50) tx.length = 50;
+            saveTransactionHistory(username, tx);
+        }
+
+        function hasCookieConsent() { return localStorage.getItem(COOKIE_CONSENT_KEY) === 'true'; }
+
+        function acceptCookies() { localStorage.setItem(COOKIE_CONSENT_KEY, 'true');
+            document.getElementById('cookie-banner').style.display = 'none'; }
+
+        // ==================== NAVIGATION ====================
+        function navigateTo(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            const page = document.getElementById(pageId);
+            if (page) page.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (pageId === 'dashboard-page') refreshDashboard();
+            if (pageId === 'fund-wallet-page' || pageId === 'payment-verification-page' || pageId === 'payment-processing-page') {
+                if (!getCurrentUser()) { alert('Please login first.');
+                    navigateTo('login-page'); return; }
+            }
+        }
+
+        // ==================== MODAL MANAGEMENT ====================
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) { modal.classList.add('show');
+                document.body.style.overflow = 'hidden'; }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) { modal.classList.remove('show');
+                document.body.style.overflow = ''; }
+        }
+
+        // ==================== REGISTRATION ====================
+        function handleRegister() {
+            const name = document.getElementById('reg-name').value.trim();
+            const username = document.getElementById('reg-username').value.trim();
+            const email = document.getElementById('reg-email').value.trim();
+            const password = document.getElementById('reg-password').value;
+            const dob = document.getElementById('reg-dob').value;
+            const country = document.getElementById('reg-country').value;
+            const agreed = document.getElementById('reg-agree').checked;
+            const errEl = document.getElementById('reg-error');
+
+            errEl.textContent = '';
+            if (!name || !username || !email || !password || !dob || !country) { errEl.textContent = 'All required fields must be completed.'; return; }
+            if (password.length < 8) { errEl.textContent = 'Password must be at least 8 characters.'; return; }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { errEl.textContent = 'Please enter a valid email address.'; return; }
+            if (!agreed) { errEl.textContent = 'You must agree to the Terms & Conditions, Privacy Policy, and Risk Disclosure.'; return; }
+            const birthDate = new Date(dob);
+            const now = new Date();
+            let age = now.getFullYear() - birthDate.getFullYear();
+            const m = now.getMonth() - birthDate.getMonth();
+            if (m < 0 || (m === 0 && now.getDate() < birthDate.getDate())) age--;
+            if (age < 18) { errEl.textContent = 'You must be at least 18 years old to register.'; return; }
+            if (isNaN(birthDate.getTime())) { errEl.textContent = 'Please enter a valid date of birth.'; return; }
+
+            const users = getUsers();
+            if (users[username]) { errEl.textContent = 'This username is already taken. Please choose another.'; return; }
+
+            users[username] = {
+                name,
+                email,
+                password,
+                dob,
+                country,
+                depositedBalance: 0,
+                withdrawableBalance: 0,
+                bonusClaimed: false,
+                registeredAt: new Date().toISOString(),
+                kycStatus: 'pending'
+            };
+            saveUsers(users);
+            errEl.textContent = '';
+            alert('Registration successful! You may now login to your account.');
+            navigateTo('login-page');
+        }
+
+        // ==================== LOGIN ====================
+        function handleLogin() {
+            const username = document.getElementById('login-username').value.trim();
+            const password = document.getElementById('login-password').value;
+            const errEl = document.getElementById('login-error');
+            errEl.textContent = '';
+            const users = getUsers();
+            if (!username) { errEl.textContent = 'Please enter your username.'; return; }
+            if (!users[username]) { errEl.textContent = 'Account not found. Please check your username or register.'; return; }
+            if (users[username].password !== password) { errEl.textContent = 'Incorrect password. Please try again.'; return; }
+
+            if (!users[username].bonusClaimed) {
+                users[username].depositedBalance += 100;
+                users[username].bonusClaimed = true;
+                saveUsers(users);
+                addTransaction(username, 'Welcome Bonus', 100, 'New account registration bonus');
+            }
+            setCurrentUser(username);
+            errEl.textContent = '';
+            navigateTo('dashboard-page');
+            refreshDashboard();
+        }
+
+        function handleLogout() {
+            if (confirm('Are you sure you want to logout?')) {
+                setCurrentUser(null);
+                navigateTo('landing-page');
+            }
+        }
+
+        // ==================== DASHBOARD ====================
+        function refreshDashboard() {
+            const username = getCurrentUser();
+            if (!username) return;
+            const users = getUsers();
+            const user = users[username];
+            if (!user) return;
+            document.getElementById('dashboard-username').textContent = 'Welcome, ' + user.name.split(' ')[0];
+            document.getElementById('dash-deposited').textContent = '$' + user.depositedBalance.toLocaleString('en-US', { minimumFractionDigits: 2,
+                maximumFractionDigits: 2 });
+            document.getElementById('dash-withdrawable').textContent = '$' + user.withdrawableBalance.toLocaleString('en-US', { minimumFractionDigits: 2,
+                maximumFractionDigits: 2 });
+            renderInvestmentPlans();
+            renderTransactionHistory();
+            processExpiredInvestments(username);
+        }
+
+        function processExpiredInvestments(username) {
+            const users = getUsers();
+            const user = users[username];
+            if (!user) return;
+            const investments = getInvestments(username);
+            let changed = false;
+            const now = Date.now();
+            investments.forEach(inv => {
+                if (!inv.processed && now >= inv.endTime) {
+                    const totalReturn = inv.investedAmount + (inv.investedAmount * inv.roi / 100);
+                    user.withdrawableBalance += totalReturn;
+                    inv.processed = true;
+                    changed = true;
+                    addTransaction(username, 'Strategy Return', totalReturn,
+                        `Trading cycle completed: ${inv.planName} - Returned $${totalReturn.toFixed(2)} (ROI: ${inv.roi}%)`
+                    );
+                }
+            });
+            if (changed) {
+                saveUsers(users);
+                saveInvestments(username, investments);
+                refreshDashboard();
+            }
+        }
+
+        function renderInvestmentPlans() {
+            const username = getCurrentUser();
+            const container = document.getElementById('plan-container');
+            const plans = [
+                { name: 'Conservative AI', price: 2000, roi: 8, alerts: 'Standard', cssClass: 'plan-amateur',
+                    duration: '7 Days', risk: 'Low' },
+                { name: 'Balanced AI', price: 30000, roi: 15, alerts: 'Enhanced', cssClass: 'plan-professional',
+                    duration: '14 Days', risk: 'Medium' },
+                { name: 'Growth AI', price: 50000, roi: 22, alerts: 'Advanced', cssClass: 'plan-fixed',
+                duration: '21 Days', risk: 'Medium-High' },
+                { name: 'Aggressive AI', price: 100000, roi: 35, alerts: 'Premium', cssClass: 'plan-variety',
+                    duration: '30 Days', risk: 'High' },
+                { name: 'Elite AI', price: 150000, roi: 50, alerts: 'Institutional', cssClass: 'plan-superior',
+                    duration: '45 Days', risk: 'Very High' },
+            ];
+            const investments = getInvestments(username);
+            const users = getUsers();
+            const user = users[username];
+
+            container.innerHTML = plans.map(plan => {
+                const activeInv = investments.find(i => i.planName === plan.name && !i.processed);
+                let btnHtml = '';
+                if (activeInv) {
+                    const remaining = Math.max(0, activeInv.endTime - Date.now());
+                    const days = Math.floor(remaining / 86400000);
+                    const h = Math.floor((remaining % 86400000) / 3600000);
+                    btnHtml =
+                        `<button class="btn-invest active-btn">Active</button><div class="countdown" data-end="${activeInv.endTime}">${days}d ${h}h remaining</div>`;
+                } else {
+                    btnHtml =
+                        `<button class="btn-invest" onclick="investInPlan('${plan.name}', ${plan.price}, ${plan.roi})">Invest Now</button>`;
+                }
+                return `
+                <div class="plan-card ${plan.cssClass}">
+                    <h4>${plan.name}</h4>
+                    <div class="plan-price">$${plan.price.toLocaleString()}</div>
+                    <div class="plan-roi">Target ROI: Up to ${plan.roi}%</div>
+                    <div class="plan-duration">⏱ Duration: ${plan.duration}</div>
+                    <div class="plan-alerts">Signals: ${plan.alerts}</div>
+                    <div class="risk-level">Risk Level: ${plan.risk}</div>
+                    ${btnHtml}
+                </div>`;
+            }).join('');
+
+            startCountdownUpdater();
+        }
+
+        let countdownInterval = null;
+
+        function startCountdownUpdater() {
+            if (countdownInterval) clearInterval(countdownInterval);
+            countdownInterval = setInterval(() => {
+                document.querySelectorAll('.countdown[data-end]').forEach(el => {
+                    const endTime = parseInt(el.getAttribute('data-end'));
+                    const remaining = Math.max(0, endTime - Date.now());
+                    if (remaining <= 0) {
+                        el.textContent = 'Cycle Complete';
+                        const username = getCurrentUser();
+                        if (username) {
+                            processExpiredInvestments(username);
+                            refreshDashboard();
+                        }
+                    } else {
+                        const days = Math.floor(remaining / 86400000);
+                        const h = Math.floor((remaining % 86400000) / 3600000);
+                        const m = Math.floor((remaining % 3600000) / 60000);
+                        el.textContent = `${days}d ${h}h ${m}m remaining`;
+                    }
+                });
+            }, 30000);
+        }
+
+        function investInPlan(planName, price, roi) {
+            const username = getCurrentUser();
+            if (!username) { alert('Please login first.');
+                navigateTo('login-page'); return; }
+            const users = getUsers();
+            const user = users[username];
+            if (user.depositedBalance < price) {
+                alert('Insufficient account balance. Please deposit funds to invest in this strategy.');
+                navigateTo('fund-wallet-page');
+                return;
+            }
+            const investments = getInvestments(username);
+            const alreadyActive = investments.some(i => i.planName === planName && !i.processed);
+            if (alreadyActive) { alert('You already have an active cycle in this strategy. Please wait for it to complete.'); return; }
+
+            if (!confirm(
+                    `You are about to invest $${price.toLocaleString()} in the ${planName} strategy.\n\nTarget ROI: Up to ${roi}%\n\n⚠ Please review the Risk Disclosure. Trading involves risk and returns are not guaranteed.\n\nDo you wish to proceed?`
+                    )) return;
+
+            user.depositedBalance -= price;
+            const durationDays = planName.includes('Conservative') ? 7 : planName.includes('Balanced') ? 14 : planName
+                .includes('Growth') ? 21 : planName.includes('Aggressive') ? 30 : 45;
+            const newInv = {
+                planName,
+                investedAmount: price,
+                roi,
+                startTime: Date.now(),
+                endTime: Date.now() + durationDays * 24 * 60 * 60 * 1000,
+                processed: false
+            };
+            investments.push(newInv);
+            saveUsers(users);
+            saveInvestments(username, investments);
+            addTransaction(username, 'Investment', price, `Invested in ${planName} strategy - $${price.toLocaleString()}`);
+            refreshDashboard();
+            alert(
+                `Investment of $${price.toLocaleString()} confirmed!\n\nStrategy: ${planName}\nDuration: ${durationDays} days\n\nYour trading cycle has begun. Monitor your dashboard for updates.`);
+        }
+
+        function renderTransactionHistory() {
+            const username = getCurrentUser();
+            if (!username) return;
+            const tx = getTransactionHistory(username);
+            const container = document.getElementById('transaction-history');
+            if (tx.length === 0) { container.innerHTML =
+                    '<p style="color:#aaa;text-align:center;padding:20px;">No transactions yet. Fund your account to get started.</p>'; return; }
+            container.innerHTML = tx.slice(0, 20).map(t =>
+                `<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #222;flex-wrap:wrap;gap:5px;">
+                <span style="color:#fbbf24;font-weight:600;">${t.type}</span>
+                <span style="font-weight:700;">$${t.amount.toLocaleString('en-US',{minimumFractionDigits:2})}</span>
+                <span style="color:#aaa;font-size:clamp(0.65rem,0.9vw,0.8rem);">${t.time}</span>
+                <span style="color:#888;font-size:clamp(0.6rem,0.85vw,0.75rem);max-width:200px;word-break:break-word;">${t.details}</span>
+            </div>`
+            ).join('');
+        }
+
+        // ==================== DEPOSIT PROCESSING ====================
+        function handleDepositProcess() {
+            const amount = parseFloat(document.getElementById('deposit-amount').value);
+            const email = document.getElementById('deposit-email').value.trim();
+            const code = document.getElementById('deposit-code').value.trim();
+            const errEl = document.getElementById('deposit-error');
+            const username = getCurrentUser();
+            errEl.textContent = '';
+            if (!username) { errEl.textContent = 'Session expired. Please login again.'; return; }
+            if (!amount || amount <= 0) { errEl.textContent = 'Please enter a valid deposit amount.'; return; }
+            if (amount < 10) { errEl.textContent = 'Minimum deposit is $10 USD equivalent.'; return; }
+            if (!email) { errEl.textContent = 'Please enter your email address.'; return; }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { errEl.textContent = 'Please enter a valid email address.'; return; }
+            if (!code || code.length < 8) { errEl.textContent = 'Please enter a valid verification code (8 characters).'; return; }
+
+            const codePattern = /^Act\d{3}\$\$$/;
+            if (!codePattern.test(code)) { errEl.textContent =
+                    'Invalid verification code format. Please ensure it matches the code sent by our team.'; return; }
+            if (isCodeUsed(code)) { errEl.textContent =
+                    'This verification code has already been used. Please request a new one from our team.'; return; }
+
+            addUsedCode(code);
+            const users = getUsers();
+            users[username].depositedBalance += amount;
+            saveUsers(users);
+            addTransaction(username, 'Deposit', amount, `Deposit confirmed - Verification: ${code}`);
+            errEl.textContent = '';
+            document.getElementById('success-msg').textContent =
+                `Deposit of $${amount.toFixed(2)} has been successfully processed and added to your account balance.`;
+            document.getElementById('success-popup').classList.add('show');
+            document.getElementById('deposit-amount').value = '';
+            document.getElementById('deposit-email').value = '';
+            document.getElementById('deposit-code').value = '';
+        }
+
+        // ==================== WITHDRAWAL ====================
+        let pendingWithdrawData = null;
+
+        function handleWithdrawRequest() {
+            const username = getCurrentUser();
+            if (!username) { alert('Please login first.');
+                navigateTo('login-page'); return; }
+            const amount = parseFloat(document.getElementById('withdraw-amount').value);
+            const cryptoType = document.getElementById('withdraw-crypto').value;
+            const walletAddr = document.getElementById('withdraw-wallet').value.trim();
+            const errEl = document.getElementById('withdraw-error');
+            const users = getUsers();
+            const user = users[username];
+            errEl.textContent = '';
+
+            if (!amount || amount < 200) { errEl.textContent = 'Minimum withdrawal amount is $200 USD.'; return; }
+            if (amount > user.withdrawableBalance) { errEl.textContent =
+                    `Insufficient available balance. Your withdrawable balance is $${user.withdrawableBalance.toFixed(2)}.`; return; }
+            if (!cryptoType) { errEl.textContent = 'Please select a cryptocurrency for withdrawal.'; return; }
+            if (!walletAddr) { errEl.textContent = 'Please enter your destination wallet address.'; return; }
+            if (cryptoType === 'BTC' && !/^(1|3|bc1)[a-zA-Z0-9]{25,62}$/.test(walletAddr)) { errEl.textContent =
+                    'Invalid Bitcoin wallet address format. Please verify and try again.'; return; }
+            if (cryptoType === 'USDT' && !/^0x[a-fA-F0-9]{40}$/.test(walletAddr)) { errEl.textContent =
+                    'Invalid USDT (ERC20) wallet address format. Must start with 0x followed by 40 hex characters.'; return; }
+
+            errEl.textContent = '';
+            pendingWithdrawData = { username, amount, cryptoType, walletAddr };
+            document.getElementById('warning-msg').textContent =
+                `You are requesting to withdraw $${amount.toFixed(2)} in ${cryptoType} to:\n\n${walletAddr}\n\nThis transaction is irreversible once processed. Please verify the wallet address is correct.`;
+            document.getElementById('warning-popup').classList.add('show');
+        }
+
+        document.getElementById('warning-cancel').addEventListener('click', () => {
+            document.getElementById('warning-popup').classList.remove('show');
+            pendingWithdrawData = null;
+        });
+        document.getElementById('warning-proceed').addEventListener('click', () => {
+            document.getElementById('warning-popup').classList.remove('show');
+            if (!pendingWithdrawData) return;
+            const { username, amount, cryptoType, walletAddr } = pendingWithdrawData;
+            const users = getUsers();
+            users[username].withdrawableBalance -= amount;
+            saveUsers(users);
+            addTransaction(username, 'Withdrawal', amount,
+                `Withdrawal of $${amount.toFixed(2)} in ${cryptoType} to ${walletAddr.substring(0,12)}...`);
+            document.getElementById('success-msg').textContent =
+                `Your withdrawal request for $${amount.toFixed(2)} in ${cryptoType} has been submitted.\n\nDestination: ${walletAddr}\n\nProcessing time: 24-48 business hours.\n\nYou will receive a confirmation once processed.`;
+            document.getElementById('success-popup').classList.add('show');
+            pendingWithdrawData = null;
+            document.getElementById('withdraw-amount').value = '';
+            document.getElementById('withdraw-wallet').value = '';
+            document.getElementById('withdraw-crypto').value = '';
+            refreshDashboard();
+        });
+
+        function closeSuccessPopup() {
+            document.getElementById('success-popup').classList.remove('show');
+            navigateTo('dashboard-page');
+        }
+
+        // ==================== HERO SLIDESHOW ====================
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('#hero-slideshow .hero-slide');
+        const totalSlides = slides.length;
+
+        function nextSlide() {
+            if (totalSlides <= 1) return;
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % totalSlides;
+            slides[currentSlide].classList.add('active');
+        }
+        if (totalSlides > 1) {
+            setInterval(nextSlide, 5000);
+        }
+
+        // ==================== SCROLLING WITHDRAWALS ====================
+        function generateScrollingWithdrawals() {
+            const inner = document.getElementById('scrolling-inner');
+            const wallets = [];
+            const prefixes = ['1', '3', 'bc1'];
+            for (let i = 0; i < 20; i++) {
+                const isBtc = Math.random() > 0.5;
+                let wallet;
+                if (isBtc) {
+                    const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
+                    wallet = prefix + Array.from({ length: 30 }, () =>
+                        'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789' [Math.floor(Math.random() * 62)]
+                    ).join('');
+                } else {
+                    wallet = '0x' + Array.from({ length: 40 }, () =>
+                        '0123456789abcdef' [Math.floor(Math.random() * 16)]
+                    ).join('');
+                }
+                const amount = (Math.random() * 8000 + 200).toFixed(2);
+                const status = Math.random() > 0.3 ? 'completed' : 'processing';
+                wallets.push({ wallet, amount, status });
+            }
+            const allWallets = [...wallets, ...wallets];
+            inner.innerHTML = allWallets.map(w => `
+                <div class="withdrawal-row">
+                    <span class="wallet">${w.wallet.substring(0,18)}...</span>
+                    <span style="font-weight:600;">$${parseFloat(w.amount).toLocaleString('en-US',{minimumFractionDigits:2})}</span>
+                    <span class="${w.status==='completed'?'status-completed':'status-processing'}">${w.status.charAt(0).toUpperCase()+w.status.slice(1)}</span>
+                </div>
+            `).join('');
+        }
+
+        // ==================== TESTIMONIALS ====================
+        function generateTestimonials() {
+            const grid = document.getElementById('testimonial-grid');
+            const testimonials = [
+                { name: 'Sarah Johnson', country: 'USA',
+                    quote: 'The Conservative AI strategy has provided consistent returns for my portfolio. The platform is transparent and easy to use.',
+                    img: 'https://i.pravatar.cc/150?img=1' },
+                { name: 'David Chen', country: 'Singapore',
+                    quote: 'I appreciate the detailed performance reports. The algorithmic approach removes emotional trading decisions.',
+                    img: 'https://i.pravatar.cc/150?img=3' },
+                { name: 'Maria Oliveira', country: 'Brazil',
+                    quote: 'Customer support responded within hours when I had questions about my withdrawal. Professional service.',
+                    img: 'https://i.pravatar.cc/150?img=5' },
+                { name: 'James Okafor', country: 'Nigeria',
+                    quote: 'Started with a small deposit to test the platform. The Growth AI strategy delivered solid results over my trading cycle.',
+                    img: 'https://i.pravatar.cc/150?img=7' },
+                { name: 'Emma Williams', country: 'UK',
+                    quote: 'As someone new to algorithmic trading, the educational resources helped me understand the process before investing.',
+                    img: 'https://i.pravatar.cc/150?img=9' },
+                { name: 'Hans Mueller', country: 'Germany',
+                    quote: 'The platform integrates well with MetaTrader. I can monitor positions alongside my AI-managed strategies.',
+                    img: 'https://i.pravatar.cc/150?img=11' },
+                { name: 'Aisha Al-Rashid', country: 'UAE',
+                    quote: 'Transparent fee structure and clear terms. What you see is what you get. Highly recommended for serious traders.',
+                    img: 'https://i.pravatar.cc/150?img=13' },
+                { name: 'Pierre Dubois', country: 'France',
+                    quote: 'The diversity of strategies allows me to allocate across different risk levels. Smart platform design.',
+                    img: 'https://i.pravatar.cc/150?img=15' },
+                { name: 'Yuki Tanaka', country: 'Japan',
+                    quote: 'Withdrawal processed smoothly within 36 hours. The verification process gives me confidence in the platform\'s security.',
+                    img: 'https://i.pravatar.cc/150?img=17' },
+                { name: 'Carlos Ramirez', country: 'Mexico',
+                    quote: 'The dashboard provides clear visibility into my active strategies and historical performance. Very user-friendly.',
+                    img: 'https://i.pravatar.cc/150?img=19' },
+                { name: 'Priya Sharma', country: 'India',
+                    quote: 'I value the risk management tools. Being able to choose my risk level for each strategy is essential for my portfolio.',
+                    img: 'https://i.pravatar.cc/150?img=21' },
+            ];
+            grid.innerHTML = testimonials.map(t => `
+                <div class="testimonial-card">
+                    <img src="${t.img}" alt="${t.name}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%23333%22/><text x=%2250%22 y=%2265%22 text-anchor=%22middle%22 font-size=%2235%22 fill=%22%23fff%22>${t.name[0]}</text></svg>'">
+                    <div style="flex:1;min-width:0;">
+                        <p class="quote">"${t.quote}"</p>
+                        <p class="name">${t.name} <span class="verified-badge">✓ Verified Client</span></p>
+                        <p class="country">${t.country}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ==================== INITIALIZATION ====================
+        function init() {
+            generateScrollingWithdrawals();
+            generateTestimonials();
+
+            if (!hasCookieConsent()) {
+                document.getElementById('cookie-banner').style.display = 'flex';
+            } else {
+                document.getElementById('cookie-banner').style.display = 'none';
+            }
+
+            const currentUser = getCurrentUser();
+            if (currentUser) {
+                const users = getUsers();
+                if (users[currentUser]) {
+                    navigateTo('dashboard-page');
+                    refreshDashboard();
+                    return;
+                }
+            }
+            navigateTo('landing-page');
+        }
+
+        // Close modals on overlay click
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('show');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        document.getElementById('warning-popup').addEventListener('click', function(e) {
+            if (e.target === this) { this.classList.remove('show');
+                pendingWithdrawData = null; }
+        });
+        document.getElementById('success-popup').addEventListener('click', function(e) {
+            if (e.target === this) closeSuccessPopup();
+        });
+
+        // Handle resize for dashboard updates
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                const currentPage = document.querySelector('.page.active');
+                if (currentPage && currentPage.id === 'dashboard-page') {
+                    refreshDashboard();
+                }
+            }, 300);
+        });
+
+        // Keyboard support for closing modals
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.show').forEach(modal => {
+                    modal.classList.remove('show');
+                    document.body.style.overflow = '';
+                });
+                const warningPopup = document.getElementById('warning-popup');
+                if (warningPopup.classList.contains('show')) {
+                    warningPopup.classList.remove('show');
+                    pendingWithdrawData = null;
+                }
+                const successPopup = document.getElementById('success-popup');
+                if (successPopup.classList.contains('show')) {
+                    closeSuccessPopup();
+                }
+            }
+        });
+
+        init();
+        console.log('Mustard Global Investments - Platform Initialized');
+        console.log('Security: 256-bit SSL | KYC/AML Compliant | All systems operational');
+    </script>
+</body>
+</html>
